@@ -92,8 +92,8 @@ int count_tank = count_tank_init;
     [self.factory randomBadTank:bornLocation_right];
 }
 
-- (void)restart {
-    [Factory clearAll];
+- (void)restartGame {
+    [Factory clearAllData];
     [Factory setIsGameover:false];
     _mainTank.life = 3;
     stage = -1;
@@ -161,7 +161,7 @@ int count_tank = count_tank_init;
     //[self.mainView bringSubviewToFront:_mainTank.imgView];
     
     XibUtil *util = [[XibUtil alloc] initWithMainView:self.mainView];
-    for (Wall *w in [util getWallsFromXib:@"Map0"]) {
+    for (Wall *w in [util getTankWallsFromXib:@"Map0"]) {
         [self.mainView addSubview:w.imgView];
         [self.mainView bringSubviewToFront:w.imgView];
     }
@@ -230,7 +230,7 @@ int count_tank = count_tank_init;
     }
 }
 
-+ (void)pauseGame {
++ (void)pauseTankGame {
     _playBtn.selected = YES;
     _timer.fireDate = [NSDate distantFuture];
 }
@@ -352,7 +352,7 @@ static int stageCount = 1;
     pv.tip = tip;
     _timer.fireDate = [NSDate distantFuture];
     //清空界面
-    [Factory clearAll];
+    [Factory clearAllData];
     pv.viewController = self;
     
     CATransition *animation = [CATransition animation]; animation.duration = 2.5;
@@ -367,7 +367,7 @@ static int stageCount = 1;
 
 static bool badTankStop = false;
 int stopCount = 0;
-+ (void)stopBadTankIn6s {
++ (void)stopBadTankInfor6s {
     badTankStop = true;
     stopCount = 0;
 }
@@ -410,7 +410,7 @@ int stopCount = 0;
     if (!welcomed) {
         welcomed = true;
         [self presentViewController:[WelcomeViewController new] animated:YES completion:nil];
-        [self restart];
+        [self restartGame];
         _timer.fireDate = [NSDate distantFuture];
         return;
     }
@@ -441,7 +441,7 @@ int stopCount = 0;
 //        _mainTank.level = 3;
         
         XibUtil *util = [[XibUtil alloc] initWithMainView:self.mainView];
-        for (Wall *w in [util changeMap:[NSString stringWithFormat:@"Map%d", stage]]) {
+        for (Wall *w in [util changeTankMap:[NSString stringWithFormat:@"Map%d", stage]]) {
             [self.mainView addSubview:w.imgView];
             [self.mainView bringSubviewToFront:w.imgView];
         }

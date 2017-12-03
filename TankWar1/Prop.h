@@ -6,14 +6,14 @@
 //  Copyright © 2015年 test. All rights reserved.
 //
 
-#import "Rectangle.h"
+#import "RecTankTangle.h"
 #import "CommonData.h"
 
 
 /**
  *  障碍物
  */
-@interface Prop : Rectangle
+@interface Prop : RecTankTangle
 
 + (instancetype)getInstance;
 

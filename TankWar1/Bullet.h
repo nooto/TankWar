@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #import "CommonData.h"
-#import "Rectangle.h"
+#import "RecTankTangle.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 @class Tank;
 
-@interface Bullet : Rectangle
+@interface Bullet : RecTankTangle
 
 @property (weak, nonatomic) Tank *tank;
 

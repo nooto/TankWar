@@ -15,19 +15,19 @@
 /**
  * frame 是主视图的frame，用来计算等比例缩放
  */
-- (UIView *)zoomWidthXibName:(NSString *)xibName;
+- (UIView *)zoomTankWidthXibName:(NSString *)xibName;
 
 /**
  * frame 是主视图的frame，用来计算等比例缩放
  */
-- (NSMutableArray<Wall *> *)getWallsFromXib:(NSString *)xibName;
+- (NSMutableArray<Wall *> *)getTankWallsFromXib:(NSString *)xibName;
 
 /**
  *改变地图
  */
-- (NSMutableArray<Wall *> *)changeMap:(NSString *)mapName;
+- (NSMutableArray<Wall *> *)changeTankMap:(NSString *)mapName;
 
 - (instancetype)initWithMainView:(UIView *)mainView;
 
-+ (NSMutableArray<Wall *> *)getAllWalls;
++ (NSMutableArray<Wall *> *)getAllTankWalls;
 @end

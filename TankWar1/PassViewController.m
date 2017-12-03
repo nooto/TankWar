@@ -56,7 +56,7 @@
         imgView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gameover.jpg" ofType:nil]];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(width / 2 - 75, 260, 150, 40);
-        [btn setTitle:@"restart" forState:UIControlStateNormal];
+        [btn setTitle:@"restartGame" forState:UIControlStateNormal];
         btn.backgroundColor = [UIColor orangeColor];
         btn.titleLabel.font = [UIFont fontWithName:@"Party LET" size:40];
         btn.titleLabel.textColor = [UIColor redColor];
@@ -78,9 +78,9 @@
     //[self presentViewController:pv animated:NO completion:nil];
     
     [self dismissViewControllerAnimated:NO completion:nil];
-    //此乃restart
+    //此乃restartGame
     if (111 == sender.tag) {
-        [self.viewController restart];
+        [self.viewController restartGame];
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Rectangle.h"
+#import "RecTankTangle.h"
 
 typedef NS_ENUM(NSUInteger, WallType) {
     /**草*/
@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, WallType) {
     WallType_cover,
 };
 
-@interface Wall : Rectangle
+@interface Wall : RecTankTangle
 
 @property (assign, nonatomic) WallType wallType;
 

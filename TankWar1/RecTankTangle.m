@@ -1,14 +1,14 @@
 //
-//  Rectangle.m
+//  RecTankTangle.m
 //  TankWar1
 //
 //  Created by yq on 15/9/21.
 //  Copyright © 2015年 test. All rights reserved.
 //
 
-#import "Rectangle.h"
+#import "RecTankTangle.h"
 
-@implementation Rectangle
+@implementation RecTankTangle
 
 
 - (void)setCenter:(CGPoint)center {

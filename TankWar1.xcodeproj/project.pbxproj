@@ -32,7 +32,7 @@
 		24EB10901BC8A85100D55A11 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24EB108F1BC8A85100D55A11 /* 4.jpg */; };
 		24F095E71BB42021009F3504 /* Map0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F095E61BB42021009F3504 /* Map0.xib */; };
 		24F095E91BB422FB009F3504 /* Template.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24F095E81BB422FB009F3504 /* Template.xib */; };
-		24F17E5A1BAFD518004A5A9A /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F17E591BAFD518004A5A9A /* Rectangle.m */; };
+		24F17E5A1BAFD518004A5A9A /* RecTankTangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F17E591BAFD518004A5A9A /* RecTankTangle.m */; };
 		24F17E681BB0019E004A5A9A /* add.wav in Resources */ = {isa = PBXBuildFile; fileRef = 24F17E631BB0019E004A5A9A /* add.wav */; };
 		24F17E691BB0019E004A5A9A /* blast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 24F17E641BB0019E004A5A9A /* blast.wav */; };
 		24F17E6A1BB0019E004A5A9A /* fire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 24F17E651BB0019E004A5A9A /* fire.wav */; };
@@ -100,8 +100,8 @@
 		24EB108F1BC8A85100D55A11 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		24F095E61BB42021009F3504 /* Map0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Map0.xib; sourceTree = "<group>"; };
 		24F095E81BB422FB009F3504 /* Template.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Template.xib; sourceTree = "<group>"; };
-		24F17E581BAFD518004A5A9A /* Rectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
-		24F17E591BAFD518004A5A9A /* Rectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rectangle.m; sourceTree = "<group>"; };
+		24F17E581BAFD518004A5A9A /* RecTankTangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecTankTangle.h; sourceTree = "<group>"; };
+		24F17E591BAFD518004A5A9A /* RecTankTangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecTankTangle.m; sourceTree = "<group>"; };
 		24F17E631BB0019E004A5A9A /* add.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = add.wav; sourceTree = "<group>"; };
 		24F17E641BB0019E004A5A9A /* blast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blast.wav; sourceTree = "<group>"; };
 		24F17E651BB0019E004A5A9A /* fire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fire.wav; sourceTree = "<group>"; };
@@ -215,8 +215,8 @@
 				241D10141BAC2E6B00582357 /* Tank.m */,
 				241D10161BAC2E9600582357 /* Bullet.h */,
 				241D10171BAC2E9600582357 /* Bullet.m */,
-				24F17E581BAFD518004A5A9A /* Rectangle.h */,
-				24F17E591BAFD518004A5A9A /* Rectangle.m */,
+				24F17E581BAFD518004A5A9A /* RecTankTangle.h */,
+				24F17E591BAFD518004A5A9A /* RecTankTangle.m */,
 				24F4DA561BB90C1300F2D7C4 /* Wall.h */,
 				24F4DA571BB90C1300F2D7C4 /* Wall.m */,
 				24DE7DC61BC78C46006FC43D /* Prop.h */,
@@ -425,7 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				241D10151BAC2E6B00582357 /* Tank.m in Sources */,
-				24F17E5A1BAFD518004A5A9A /* Rectangle.m in Sources */,
+				24F17E5A1BAFD518004A5A9A /* RecTankTangle.m in Sources */,
 				24F4DA581BB90C1300F2D7C4 /* Wall.m in Sources */,
 				241D10121BAC2E4B00582357 /* Factory.m in Sources */,
 				241D0FE01BAC2DB800582357 /* ViewController.m in Sources */,

@@ -10,8 +10,8 @@
 #import "XibUtil.h"
 
 //全是子弹
-static NSMutableArray<Rectangle *> *needCheckKnocked;
-static NSMutableArray<Rectangle *> *badTankArray;
+static NSMutableArray<RecTankTangle *> *needCheckKnocked;
+static NSMutableArray<RecTankTangle *> *badTankArray;
 
 static NSMutableArray<UIImage *> *bornImgs;
 
@@ -40,7 +40,7 @@ int bulletSpeed = 8.5;
     isGameEnd = isGameover;
 }
 
-+ (NSMutableArray<Rectangle *> *)instanceOfNeedCheckKnocked {
++ (NSMutableArray<RecTankTangle *> *)instanceOfNeedCheckKnocked {
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         needCheckKnocked = [NSMutableArray array];
@@ -48,7 +48,7 @@ int bulletSpeed = 8.5;
     return needCheckKnocked;
 }
 
-+ (NSMutableArray<Rectangle *> *)instanceOfBadTankArray {
++ (NSMutableArray<RecTankTangle *> *)instanceOfBadTankArray {
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         badTankArray = [NSMutableArray array];
@@ -232,7 +232,7 @@ int bulletSpeed = 8.5;
 }
 
 - (BOOL)canBorn:(UIImageView *)view {
-    for (Rectangle *r in badTankArray) {
+    for (RecTankTangle *r in badTankArray) {
         //检测到碰撞
         if (CGRectIntersectsRect(r.imgView.frame, view.frame)) {
             return NO;
@@ -254,7 +254,7 @@ int bulletSpeed = 8.5;
     return 0 == rect.origin.x && 0 == rect.origin.y && 0 == rect.size.width && 0 == rect.size.height;
 }
 
-+ (BOOL)checkIsKnockedWithRect:(UIView *)r1 r2:(UIView *)r2 {
++ (BOOL)checkITanksKnockedWithRect:(UIView *)r1 r2:(UIView *)r2 {
     if (r1.hidden || r2.hidden) {//隐藏不检测
         return NO;
     }
@@ -262,11 +262,11 @@ int bulletSpeed = 8.5;
 }
 
 #pragma mark - 和坦克的碰撞检测
-+ (NSMutableArray<Rectangle *> *)checkKnockWidthTank:(Rectangle *)r1 {
++ (NSMutableArray<RecTankTangle *> *)checkKnockWidthTank:(RecTankTangle *)r1 {
     NSMutableArray *arr = [NSMutableArray array];
-    for (Rectangle *r in needCheckKnocked) {
+    for (RecTankTangle *r in needCheckKnocked) {
         //检测到碰撞
-        if (r1 != r && [Factory checkIsKnockedWithRect:r1.imgView r2:r.imgView]) {
+        if (r1 != r && [Factory checkITanksKnockedWithRect:r1.imgView r2:r.imgView]) {
             [arr addObject:r];
         }
     }
@@ -275,11 +275,11 @@ int bulletSpeed = 8.5;
 
 
 #pragma mark - 和障碍物的碰撞检测
-+ (NSMutableArray<Rectangle *> *)checkKnockWidthWall:(Rectangle *)r1 {
-    NSMutableArray<Rectangle *> *arr = [NSMutableArray array];
-    for (Wall *r in [XibUtil getAllWalls]) {
++ (NSMutableArray<RecTankTangle *> *)checkKnockWidthWall:(RecTankTangle *)r1 {
+    NSMutableArray<RecTankTangle *> *arr = [NSMutableArray array];
+    for (Wall *r in [XibUtil getAllTankWalls]) {
         //检测到碰撞
-        if (r1 != r && [Factory checkIsKnockedWithRect:r1.imgView r2:r.imgView]) {
+        if (r1 != r && [Factory checkITanksKnockedWithRect:r1.imgView r2:r.imgView]) {
             if (r.wallType == WallType_grss) {//草不检测
                 continue;
             }
@@ -290,23 +290,23 @@ int bulletSpeed = 8.5;
 }
 
 #pragma mark - 碰撞检测用于子弹
-+ (Rectangle *)checkIsKnockedWithRectArray:(Rectangle *)r1 {
-    for (Rectangle *r in badTankArray) {
++ (RecTankTangle *)checkIsKnockedWithRectArray:(RecTankTangle *)r1 {
+    for (RecTankTangle *r in badTankArray) {
         //检测到碰撞
-        if (!r.isDeath && r1.isGood != r.isGood && r1 != r && [Factory checkIsKnockedWithRect:r1.imgView r2:r.imgView]) {
+        if (!r.isDeath && r1.isGood != r.isGood && r1 != r && [Factory checkITanksKnockedWithRect:r1.imgView r2:r.imgView]) {
             return r;
         }
     }
-    for (Rectangle *r in needCheckKnocked) {
+    for (RecTankTangle *r in needCheckKnocked) {
         //检测到碰撞
-        if (!r.isDeath && r1.isGood != r.isGood && r1 != r && [Factory checkIsKnockedWithRect:r1.imgView r2:r.imgView]) {
+        if (!r.isDeath && r1.isGood != r.isGood && r1 != r && [Factory checkITanksKnockedWithRect:r1.imgView r2:r.imgView]) {
             return r;
         }
     }
     
-//    for (Wall *r in [XibUtil getAllWalls]) {
+//    for (Wall *r in [XibUtil getAllTankWalls]) {
 //        //检测到碰撞
-//        if (!r.isDeath && r1 != r && [Factory checkIsKnockedWithRect:r1.imgView r2:r.imgView]) {
+//        if (!r.isDeath && r1 != r && [Factory checkITanksKnockedWithRect:r1.imgView r2:r.imgView]) {
 //            if (r.wallType == WallType_grss) {//草不检测
 //                continue;
 //            }
@@ -327,7 +327,7 @@ int bulletSpeed = 8.5;
     tmpMainView = mainView;
 }
 
-+ (void)clearAll {
++ (void)clearAllData {
     [needCheckKnocked removeAllObjects];
     [badTankArray removeAllObjects];
     for (UIView *view in tmpMainView.subviews) {

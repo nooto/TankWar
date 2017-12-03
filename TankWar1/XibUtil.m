@@ -26,7 +26,7 @@ UIView *mainView;
     return self;
 }
 
-- (UIView *)zoomWidthXibName:(NSString *)xibName {
+- (UIView *)zoomTankWidthXibName:(NSString *)xibName {
     UIView *view = [[NSBundle mainBundle] loadNibNamed:xibName owner:nil options:nil].firstObject;
     CGFloat scale = [UIScreen mainScreen].bounds.size.width / 414;
     view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
@@ -41,13 +41,13 @@ UIView *mainView;
     return view;
 }
 
-- (NSMutableArray<Wall *> *)getWallsFromXib:(NSString *)xibName {
+- (NSMutableArray<Wall *> *)getTankWallsFromXib:(NSString *)xibName {
     if (!wallNames) {
         wallNames = @[@"grass", @"brick-1", @"water", @"steel", @"symbol"];
     }
     if (!walls) {
         walls = [NSMutableArray array];
-        for (UIView *view in [self zoomWidthXibName:xibName].subviews) {
+        for (UIView *view in [self zoomTankWidthXibName:xibName].subviews) {
             if ([view isMemberOfClass:[UIImageView class]]) {
                 Wall *wall = [Wall new];
                 NSInteger index = ((UIImageView *)view).tag - 300;
@@ -67,12 +67,12 @@ UIView *mainView;
     return walls;
 }
 
-- (NSMutableArray<Wall *> *)changeMap:(NSString *)mapName {
+- (NSMutableArray<Wall *> *)changeTankMap:(NSString *)mapName {
     if (!walls) {
         walls = [NSMutableArray array];
     }
     [walls removeAllObjects];
-    for (UIView *view in [self zoomWidthXibName:mapName].subviews) {
+    for (UIView *view in [self zoomTankWidthXibName:mapName].subviews) {
         if ([view isMemberOfClass:[UIImageView class]]) {
             Wall *wall = [Wall new];
             NSInteger index = ((UIImageView *)view).tag - 300;
@@ -91,7 +91,7 @@ UIView *mainView;
     return walls;
 }
 
-+ (NSMutableArray<Wall *> *)getAllWalls {
++ (NSMutableArray<Wall *> *)getAllTankWalls {
     return walls;
 }
 

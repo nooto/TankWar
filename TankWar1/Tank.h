@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Rectangle.h"
+#import "RecTankTangle.h"
 #import "Bullet.h"
 @class Prop;
 
-@interface Tank : Rectangle
+@interface Tank : RecTankTangle
 
 
 @property (assign, nonatomic) TankType type;
@@ -29,7 +29,7 @@
 /**
  *  已经检测过，不需要再检测碰撞的坦克和建筑
  */
-@property (strong, nonatomic) NSMutableArray<Rectangle *> *notNeedChecks;
+@property (strong, nonatomic) NSMutableArray<RecTankTangle *> *notNeedChecks;
 
 /**
  *  有几条命

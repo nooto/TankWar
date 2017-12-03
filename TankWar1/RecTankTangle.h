@@ -1,5 +1,5 @@
 //
-//  Rectangle.h
+//  RecTankTangle.h
 //  TankWar1
 //
 //  Created by yq on 15/9/21.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface Rectangle : NSObject {
+@interface RecTankTangle : NSObject {
     @protected
     CGPoint _center;
     CGSize _size;

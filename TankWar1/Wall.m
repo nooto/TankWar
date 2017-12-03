@@ -23,7 +23,7 @@
         } else {
             [self.imgView removeFromSuperview];
         }
-        [[XibUtil getAllWalls] removeObject:self];
+        [[XibUtil getAllTankWalls] removeObject:self];
     }
 }
 

@@ -13,14 +13,14 @@
 /*
  *  游戏暂停
  */
-+ (void)pauseGame;
++ (void)pauseTankGame;
 
 /*
  *  重新开始
  */
-- (void)restart;
+- (void)restartGame;
 
-+ (void)stopBadTankIn6s;
++ (void)stopBadTankInfor6s;
 
 
 

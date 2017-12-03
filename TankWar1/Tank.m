@@ -263,7 +263,7 @@ NSTimer *timer = nil;
                 break;
                 
             case PropType_timer:{
-                [ViewController stopBadTankIn6s];
+                [ViewController stopBadTankInfor6s];
                 [self playingSoundEffectWith:@"jianqi.wav"];
             }
                 break;
@@ -296,9 +296,9 @@ NSTimer *timer = nil;
         
         self.canNotMoveDir = 0;
         
-        NSMutableArray<Rectangle *> *t1 = [Factory checkKnockWidthWall:self];
+        NSMutableArray<RecTankTangle *> *t1 = [Factory checkKnockWidthWall:self];
         [self checkTank:tank t:t1];
-        NSMutableArray<Rectangle *> *t = [Factory checkKnockWidthTank:self];
+        NSMutableArray<RecTankTangle *> *t = [Factory checkKnockWidthTank:self];
         [self checkTank:tank t:t];
         
         //道具
@@ -327,9 +327,9 @@ NSTimer *timer = nil;
     }
 }
 
-- (void)checkTank:(Tank *)tank t:(NSMutableArray<Rectangle *> *)ts {
+- (void)checkTank:(Tank *)tank t:(NSMutableArray<RecTankTangle *> *)ts {
     
-    for (Rectangle *t in ts) {
+    for (RecTankTangle *t in ts) {
         CGFloat w = tank.imgView.frame.size.width / 2 + t.imgView.frame.size.width / 2;
         CGFloat h = tank.imgView.frame.size.height / 2 + t.imgView.frame.size.height / 2;
         
@@ -391,7 +391,7 @@ int count = 0;
         }
         bullet.center = CGPointMake(x, y);
         
-        Rectangle *r = [Factory checkIsKnockedWithRectArray:bullet];
+        RecTankTangle *r = [Factory checkIsKnockedWithRectArray:bullet];
         if (r) {
             UIView *v = [r.imgView viewWithTag:2333];
             if (!v || v.isHidden) {

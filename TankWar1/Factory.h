@@ -38,27 +38,27 @@ enum bornLocation {bornLocation_left = 0, bornLocation_middle, bornLocation_righ
 /**
  *  清空全部
  */
-+ (void)clearAll;
++ (void)clearAllData;
 
 /**
  * 是否撞击检测
  */
-+ (BOOL)checkIsKnockedWithRect:(UIView *)r1 r2:(UIView *)r2;
++ (BOOL)checkITanksKnockedWithRect:(UIView *)r1 r2:(UIView *)r2;
 
 /**
  * 是否撞击检测,检测全部
  */
-+ (Rectangle *)checkIsKnockedWithRectArray:(Rectangle *)r1;
++ (RecTankTangle *)checkIsKnockedWithRectArray:(RecTankTangle *)r1;
 
 /**
  * 检测是否和任意的坦撞 
  */
-+ (NSMutableArray<Rectangle *> *)checkKnockWidthTank:(Rectangle *)r1;
++ (NSMutableArray<RecTankTangle *> *)checkKnockWidthTank:(RecTankTangle *)r1;
 
 /**
  * 检测是否和任意的障碍物相撞
  */
-+ (NSMutableArray<Rectangle *> *)checkKnockWidthWall:(Rectangle *)r1;
++ (NSMutableArray<RecTankTangle *> *)checkKnockWidthWall:(RecTankTangle *)r1;
 
 /**
  * 是否出界
@@ -71,9 +71,9 @@ enum bornLocation {bornLocation_left = 0, bornLocation_middle, bornLocation_righ
  */
 - (BOOL)randomBadTank:(NSInteger)location;
 
-+ (NSMutableArray<Rectangle *> *)instanceOfNeedCheckKnocked;
++ (NSMutableArray<RecTankTangle *> *)instanceOfNeedCheckKnocked;
 
-+ (NSMutableArray<Rectangle *> *)instanceOfBadTankArray;
++ (NSMutableArray<RecTankTangle *> *)instanceOfBadTankArray;
 
 + (BOOL)isBorining;
 
